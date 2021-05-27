@@ -25,11 +25,11 @@ def show_res(buy_price, sell_price, commission,Text,stock_num):
         font=ft
     )
     Text.delete('1.0','end')
-    Text.insert('end',"差价"+str(rmb((res["sell_price"]-res["buy_price"])*stock_num))+"\n",'tag')
+    Text.insert('end',"差价:"+str(rmb((res["sell_price"]-res["buy_price"])*stock_num))+"\n",'tag')
     Text.insert('end',"总盈利:"+str(res["benefit"])+"\n",'tag')
     Text.insert('end',"印花税:"+str(res["stamp_num"])+"\n",'tag')
-    Text.insert('end',"买入过户费"+str(res["transfer_fee_buy"])+'\n','tag')
-    Text.insert('end',"卖出过户费"+str(res["transfer_fee_sell"])+'\n','tag')
+    Text.insert('end',"买入过户费:"+str(res["transfer_fee_buy"])+'\n','tag')
+    Text.insert('end',"卖出过户费:"+str(res["transfer_fee_sell"])+'\n','tag')
     Text.insert('end',"总手续费:"+str(res["handling_fee"])+"\n",'tag')
     Text.insert('end',"\n")
 
@@ -57,11 +57,12 @@ if __name__ == '__main__':
     Result_text=Text(tk)
     Result_text.pack()
 
+
     Button_cal = Button(tk,text="计算",command=lambda:show_res(commission=Entry_commission.get(),
                                                               buy_price=Entry_buy_price.get(),
                                                               sell_price=Entry_sell_price.get(),
                                                               Text=Result_text,
-                                                             stock_num=Entry_stock_num.get()))
+                                                             stock_num=Entry_stock_num.get()),width=40,height=15)
     Button_cal.pack()
     tk.mainloop()
 
